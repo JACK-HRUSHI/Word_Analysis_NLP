@@ -1,3 +1,5 @@
+import time
+
 def tense(x):
     t = {
         's': 'simple-present',
@@ -22,25 +24,33 @@ def lemmatization_morphological_analysis(x, y):
     }
     for i in list:
         if str == i:
-            print("\nIt's a type of Lemmatization")
+            print("It's a type of Lemmatization")
             print("Root word is " + word[str])
             count = 1
+            delay()
 
     if count == 0:
-        print("\nYou have entered root word only !")
-        print("So, root word is " + str)
-        print("Entered word is Singular")
-        print("It\'s Tense is " + "simple-present")
+        if str == 'stop':
+            exit()
+        elif len(str) == 1:
+            print("Error...")
+            delay()
+        else:
+            print("You have entered root word only !")
+            print("So, root word is " + str)
+            print("Entered word is Singular")
+            print("It\'s Tense is " + "simple-present")
+            # print("It\'s Category is ", category())
+            delay()
 
 def inflectional_morphological_analysis(x, y):
     str = x
     count = y
     # List of suffix
     list = ['ies', 'iness', 'ing', 'ed', 's']
-    dlist = ['ies', 'iness']
 
-    # str = input("\nEnter your word here : ") # Take input from user
-    # str = str.lower()
+    # List of suffixes for Dervational Morphological Analysis
+    # dlist = ['iance', 'ied', 'ial', 'ize', 'ier', 'iest', 'ily', 'iage', 'iful', 'iment']
 
     for i in list:
         length = len(i)
@@ -49,7 +59,7 @@ def inflectional_morphological_analysis(x, y):
 
         if suffix == i:
             if i == 'ies' or i == 'iness':
-                print("\nIt's a type of Derivational Morphological Analysis")
+                print("It's a type of Derivational Morphological Analysis")
                 root = str.removesuffix(suffix)
                 root = root + 'y'
                 print("Root word is " + root)
@@ -60,9 +70,9 @@ def inflectional_morphological_analysis(x, y):
                     print("Entered word is Plural")
                 else:
                     print("Entered word is Singular")
-                break
+                delay()
             else:
-                print("\nIt's a type of Inflectional Morphological Analysis")
+                print("It's a type of Inflectional Morphological Analysis")
                 root = str.removesuffix(i)
                 print("Root word is " + root)
                 count = 1
@@ -72,12 +82,18 @@ def inflectional_morphological_analysis(x, y):
                     print("Entered word is Plural")
                 else:
                     print("Entered word is Singular")
+                delay()
 
     if count == 0:
          lemmatization_morphological_analysis(str, count)
 
+def delay():
+    print("\nWait...\n")
+    time.sleep(2)
+    main()
+
 def main():
-    str = input("\nEnter your word here : ")  # Take input from user
+    str = input("Enter your word here : ")  # Take input from user
     str = str.lower()
     count = 0
     inflectional_morphological_analysis(str, count)
