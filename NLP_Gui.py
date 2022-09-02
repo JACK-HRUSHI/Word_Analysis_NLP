@@ -1,10 +1,12 @@
+import tkinter
 from tkinter import*
 from tkinter import ttk
 from tkinter import messagebox
 import time
 
-window=Tk()
+window = tkinter.Tk()
 window.geometry("700x350")
+window.eval('tk::PlaceWindow . center')
 window.configure(bg="lightcyan")
 window.title("Word Analysis")
 
@@ -117,22 +119,22 @@ def Clear():
     enterword.delete(0,"end")
     out.delete(1.0,"end")
 
-titlelabel = Label(window,text="Morphological Analysis",font=("Times New Roman",20,"bold","underline"),bg="lightcyan")
-titlelabel.place(x=218,y=20)
+titlelabel = Label(window, text="Morphological Analysis", font=("Times New Roman", 20, "bold", "underline"), bg="lightcyan")
+titlelabel.place(x=218, y=20)
 
-wordlabel = Label(window,text="Enter your word :",font=("Times New Roman",12,"bold"),bg="lightcyan")
-wordlabel.place(x=200,y=75)
+wordlabel = Label(window, text="Enter your word :", font=("Times New Roman", 12, "bold"), bg="lightcyan")
+wordlabel.place(x=200, y=75)
 
-enterword=Entry(window,bd=5,width=29)
-enterword.place(x=330,y=75)
+enterword = Entry(window, bd=5, width=29)
+enterword.place(x=330, y=75)
 
-runBtn=Button(window,text="Run",bd = '4',height= 1, width=18,command = execute)
-runBtn.place(x=210,y=115)
+runBtn = Button(window, text="Run", bd='4', height=1, width=18, command=execute)
+runBtn.place(x=210, y=115)
 
-clearBtn=Button(window,text="Clear",bd = '4',height= 1, width=18,command = Clear)
-clearBtn.place(x=360,y=115)
+clearBtn = Button(window, text="Clear", bd='4', height=1, width=18, command=Clear)
+clearBtn.place(x=360, y=115)
 
-out=Text(window,bd=5, height = 6, width = 55)
-out.place(x=140,y=165)
+out = Text(window, bd=5, height=6, width=55)
+out.place(x=140, y=165)
 
 mainloop()
